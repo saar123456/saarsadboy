@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Halaman Login</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: rgb(137, 228, 213);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #007BFF;
+            outline: none;
+            transform: scale(1.02);
+            /* Scale effect on focus */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .message {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="login-form" id="loginForm" method="post">
+            <h1>Loginkan dahulu</h1>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" required minlength="3" maxlength="15" />
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required />
+                <div>
+                    <input type="checkbox" id="showPassword" />
+                    <label for="showPassword">Tampilkan Password</label>
+                </div>
+            </div>
+            <button type="submit">Masuk</button>
+            <p class="message">Belum punya akun? <a href="#" id="registerLink">Daftar</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const storedPassword = localStorage.getItem(username);
+
+            if (storedPassword === null) {
+                alert('Username tidak ditemukan. Silakan daftar terlebih dahulu.');
+                return;
+            }
+
+            if (storedPassword !== password) {
+                alert('Password salah. Silakan coba lagi.');
+                return;
+            }
+
+            window.location.href = 'index.html';
+        });
+
+        document.getElementById('registerLink').addEventListener('click', function () {
+            const username = prompt('Masukkan username baru:');
+            const password = prompt('Masukkan password baru:');
+
+            if (username && password) {
+                localStorage.setItem(username, password);
+                alert('Registrasi berhasil! Sekarang Anda dapat login.');
+            } else {
+                alert('Registrasi dibatalkan.');
+            }
+        });
+
+        // Menampilkan atau menyembunyikan password
+        document.getElementById('showPassword').addEventListener('change', function () {
+            const passwordInput = document.getElementById('password');
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
+</body>
+
+</html>

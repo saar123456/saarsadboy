@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Halaman Web sederhana</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styling untuk header */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fbff0000;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Styling untuk tombol Sign In */
+        .login-button {
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #10afe0;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.1s, transform 0.2s;
+            /* Efek transisi */
+        }
+
+        .button:hover {
+            background-color: #d815c8;
+            /* Warna saat hover */
+            transform: scale(1.05);
+            /* Memperbesar tombol saat hover */
+        }
+
+        /* Animasi */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Styling untuk konten utama */
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            /* Spasi antar section */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Bagian Header -->
+    <header>
+        <h1>HALAMAN WEB SAAR DISINI</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="#service">SERVICE</a></li>
+                <li><a href="https://wa.me/6285839227116?text=Halo%20Saya%20ingin%20bertanya"
+                        target="_blank">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="login-button">
+            <a href="login.html" id="login.html" class="button">sign out</a>
+        </div>
+    </header>
+
+    <!-- Bagian Konten Utama -->
+    <main>
+        <article>
+            <section id="home" class="fade-in">
+                <h2>Selamat Datang di Situs SAAR DISINI</h2>
+                <p>Ini adalah sebuah website sederhana yang saya buat dengan kerja keras saya .</p>
+                <img src="123.jpg" alt="Banner" class="banner-image">
+            </section>
+
+            <section id="about" class="fade-in">
+                <h2>About Us</h2>
+                <p>Pantang Pulang Sebelum Menang.</p>
+            </section>
+
+            <section id="service" class="fade-in">
+                <h2>Kami Siap Melayani Pembuatan:</h2>
+                <ul>
+                    <li>Instalasi windows</li>
+                    <li>menghack kominfo</li>
+                    <li>Oprek HP</li>
+                </ul>
+            </section>
+        </article>
+
+        <!-- Bagian Sidebar -->
+        <aside>
+            <h3>Latest News</h3>
+            <p><strong>Peluncuran Layanan Baru:</strong> Kami dengan bangga mengumumkan peluncuran layanan terbaru kami:
+                <em>Pengembangan Aplikasi Mobile</em>! Dengan semakin banyaknya pengguna yang beralih ke perangkat
+                mobile, kami
+                berkomitmen untuk membantu bisnis Anda menjangkau pelanggan melalui aplikasi yang intuitif dan efisien.
+                Tim kami
+                siap membantu Anda mulai dari tahap perencanaan hingga peluncuran. Untuk informasi lebih lanjut, <a
+                    href="https://wa.me/6285839227116?text=Halo%20Saya%20ingin%20bertanya">hubungi kami</a> atau kunjungi halaman layanan kami.
+            </p>
+            <p>Subscribe to our newsletter for updates.</p>
+        </aside>
+    </main>
+
+    <!-- Bagian Footer -->
+    <footer>
+        <p>&copy; 2024 SAAR. All rights reserved.</p>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginBtn = document.getElementById('login.html');
+        const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+
+        // Ubah teks tombol berdasarkan status login
+        if (isLoggedIn) {
+            loginBtn.textContent = 'Sign Out';
+            loginBtn.onclick = function () {
+                localStorage.setItem('loggedIn', 'false'); // Ubah 'True' menjadi 'false'
+                location.reload(); // Muat ulang halaman
+            };
+        } else {
+            loginBtn.textContent = 'Sign Out';
+            loginBtn.href = 'login.html'; // Arahkan ke halaman login
+        }
+
+        // Menambahkan animasi pada elemen saat scroll
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
