@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aplikasi Pengelola Keuangan</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Gaya CSS -->
+    <style>
+        /* Reset dasar */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f6f8;
+        }
+
+        /* Container utama */
+        .login-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 350px; /* Maksimal lebar */
+            margin: 1rem;
+        }
+
+        /* Gambar logo atau foto */
+        .login-container img {
+    width: 120px; /* Lebar gambar */
+    height: 120px; /* Tinggi gambar */
+    border-radius: 15px; /* Sudut melengkung */
+    margin: 1.5rem auto; /* Pusatkan gambar dengan jarak atas dan bawah */
+    object-fit: cover; /* Pastikan gambar proporsional */
+    border: 3px solid #6e0788c9; /* Garis tepi */
+}
+
+        }
+
+        /* Judul */
+        .login-container h2 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            color: #333333;
+        }
+
+        /* Input grup */
+        .input-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #555555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Tombol Login */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.7rem;
+            background-color: #6e0788c9;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #500561c9;
+        }
+
+        /* Social login */
+        .social-login {
+            margin: 1.5rem 0 0.5rem;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        .social-icons a {
+            margin: 0 0.5rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #6e0788c9;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            color: #777777;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1.5rem; /* Kurangi padding */
+            }
+            .login-container img {
+                width: 100px; /* Perkecil gambar */
+                height: 100px;
+            }
+            .btn {
+                font-size: 0.9rem;
+                padding: 0.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 90%; /* Lebar maksimum 90% untuk tablet */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Tambahkan foto pengelola keuangan -->
+        <img src="as.jpg" alt="Foto Pengelola Keuangan">
+        <h2>Selamat Datang di Aplikasi Pengelola Keuangan</h2>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <div class="social-login">Atau login dengan</div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-apple"></i></a>
+        </div>
+        <div class="footer-text">
+            Belum punya akun? <a href="#">Daftar di sini</a>
+        </div>
+    </div>
+</body>
+</html>
